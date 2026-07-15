@@ -70,7 +70,7 @@
       position: relative;
     }
     .masthead::before, .masthead::after {
-      content: "❖";
+      content: "";
       color: var(--accent);
       font-size: 1.2rem;
       position: absolute;
@@ -754,7 +754,7 @@
         <div class="luck-table-wrap">
           <table class="luck-table" id="luckTable"></table>
         </div>
-        <div class="scroll-hint">← 左右滑动查看完整大运 →</div>
+        <div class="scroll-hint">← 左右滑动查看完整大运 -></div>
       </section>
 
     </section>
@@ -1040,18 +1040,18 @@
       // 寅月起立春, 卯月起惊蛰, 辰月起清明, 巳月起立夏,
       // 午月起芒种, 未月起小暑, 申月起立秋, 酉月起白露,
       // 戌月起寒露, 亥月起立冬, 子月起大雪, 丑月起小寒
-      { branch: 2, term: 2 },   // 立春 → 寅
-      { branch: 3, term: 4 },   // 惊蛰 → 卯
-      { branch: 4, term: 6 },   // 清明 → 辰
-      { branch: 5, term: 8 },   // 立夏 → 巳
-      { branch: 6, term: 10 },  // 芒种 → 午
-      { branch: 7, term: 12 },  // 小暑 → 未
-      { branch: 8, term: 14 },  // 立秋 → 申
-      { branch: 9, term: 16 },  // 白露 → 酉
-      { branch: 10, term: 18 }, // 寒露 → 戌
-      { branch: 11, term: 20 }, // 立冬 → 亥
-      { branch: 0, term: 22 },  // 大雪 → 子
-      { branch: 1, term: 0 }    // 小寒 → 丑
+      { branch: 2, term: 2 },   // 立春 -> 寅
+      { branch: 3, term: 4 },   // 惊蛰 -> 卯
+      { branch: 4, term: 6 },   // 清明 -> 辰
+      { branch: 5, term: 8 },   // 立夏 -> 巳
+      { branch: 6, term: 10 },  // 芒种 -> 午
+      { branch: 7, term: 12 },  // 小暑 -> 未
+      { branch: 8, term: 14 },  // 立秋 -> 申
+      { branch: 9, term: 16 },  // 白露 -> 酉
+      { branch: 10, term: 18 }, // 寒露 -> 戌
+      { branch: 11, term: 20 }, // 立冬 -> 亥
+      { branch: 0, term: 22 },  // 大雪 -> 子
+      { branch: 1, term: 0 }    // 小寒 -> 丑
     ];
 
     function monthPillar(birthYear, month, day) {
@@ -1119,9 +1119,9 @@
     }
 
     /* ---- 时柱 ---- */
-    // 五鼠遁：日干 → 子时天干
-    // 甲己 → 甲子 (0), 乙庚 → 丙子 (2), 丙辛 → 戊子 (4),
-    // 丁壬 → 庚子 (6), 戊癸 → 壬子 (8)
+    // 五鼠遁：日干 -> 子时天干
+    // 甲己 -> 甲子 (0), 乙庚 -> 丙子 (2), 丙辛 -> 戊子 (4),
+    // 丁壬 -> 庚子 (6), 戊癸 -> 壬子 (8)
     function hourPillar(dayStem, hour) {
       const branch = hourToBranch(hour);
       const baseStem = (dayStem * 2) % 10; // 子时天干
@@ -1143,7 +1143,7 @@
       if (CONTROLS[dmEl] === otEl) return sameYY ? "偏财" : "正财";
       if (GENERATES[otEl] === dmEl) return sameYY ? "偏印" : "正印";
       if (CONTROLS[otEl] === dmEl) return sameYY ? "七杀" : "正官";
-      return "—";
+      return "--";
     }
 
     // 地支十神（取本气）
@@ -1194,16 +1194,16 @@
 
       // 天乙贵人：甲戊庚牛羊，乙己鼠猴乡，丙丁猪鸡位，壬癸蛇兔藏，六辛逢马虎
       const GUI_REN = {
-        0: [1, 7],   // 甲 → 丑未
-        1: [11, 8],  // 乙 → 亥申
-        2: [10, 9],  // 丙 → 戌酉
-        3: [10, 9],  // 丁 → 戌酉
-        4: [1, 7],   // 戊 → 丑未
-        5: [11, 8],  // 己 → 亥申
-        6: [1, 7],   // 庚 → 丑未
-        7: [6, 2],   // 辛 → 午寅
-        8: [5, 3],   // 壬 → 巳卯
-        9: [5, 3]    // 癸 → 巳卯
+        0: [1, 7],   // 甲 -> 丑未
+        1: [11, 8],  // 乙 -> 亥申
+        2: [10, 9],  // 丙 -> 戌酉
+        3: [10, 9],  // 丁 -> 戌酉
+        4: [1, 7],   // 戊 -> 丑未
+        5: [11, 8],  // 己 -> 亥申
+        6: [1, 7],   // 庚 -> 丑未
+        7: [6, 2],   // 辛 -> 午寅
+        8: [5, 3],   // 壬 -> 巳卯
+        9: [5, 3]    // 癸 -> 巳卯
       };
       const gr = GUI_REN[dayStem] || [];
       [chart.year.branch, chart.month.branch, chart.hour.branch].forEach((b, idx) => {
@@ -1215,11 +1215,11 @@
 
       // 文昌贵人：甲乙巳午，丙戊申酉，丁己壬癸酉亥，庚辛亥子，壬子
       const WEN_CHANG = {
-        0: 5, 1: 6,   // 甲乙 → 巳午
-        2: 8, 4: 8,   // 丙戊 → 申
-        3: 9, 5: 9,   // 丁己 → 酉
-        6: 11, 7: 0,  // 庚辛 → 亥子
-        8: 0, 9: 0    // 壬癸 → 子
+        0: 5, 1: 6,   // 甲乙 -> 巳午
+        2: 8, 4: 8,   // 丙戊 -> 申
+        3: 9, 5: 9,   // 丁己 -> 酉
+        6: 11, 7: 0,  // 庚辛 -> 亥子
+        8: 0, 9: 0    // 壬癸 -> 子
       };
       const wc = WEN_CHANG[dayStem];
       [chart.year.branch, chart.month.branch, chart.hour.branch].forEach((b, idx) => {
@@ -1393,10 +1393,10 @@
       // 月令主气与日主的关系
       // GENERATES[X] = X 所生（即X的食伤）
       // 月令生我 = 月令是我的印星 = 月令 == 我所被生之五行, 即 GENERATES[月令] == dmEl
-      // 反过来说：dmEl 的印星 = 我被X生 → X生dmEl → GENERATES[X] = dmEl → X = REVERSE[dmEl]
+      // 反过来说：dmEl 的印星 = 我被X生 -> X生dmEl -> GENERATES[X] = dmEl -> X = REVERSE[dmEl]
       // 我生月令 = 食伤泄气 = 月令是我的食伤 = GENERATES[dmEl] == monthMainEl
-      // 月令克我 = 官杀克身 = 月令克dmEl → CONTROLS[月令] == dmEl
-      // 我克月令 = 财耗 = 我克月令 → CONTROLS[dmEl] == monthMainEl
+      // 月令克我 = 官杀克身 = 月令克dmEl -> CONTROLS[月令] == dmEl
+      // 我克月令 = 财耗 = 我克月令 -> CONTROLS[dmEl] == monthMainEl
 
       if (monthMainEl === dmEl) lingScore = 50;       // 比和（同五行），得令
       else if (GENERATES[monthMainEl] === dmEl) lingScore = 50; // 月令生日主，得令
@@ -1547,7 +1547,7 @@
         // 农历转公历
         const solar = lunarToSolar(ly, lm, ld, isLeap);
         y = solar.year; m = solar.month; d = solar.day;
-        dateSourceDesc = `农历 ${ly}年${isLeap?'闰':''}${monthNameCN(lm)}月${ld}日 → 公历 ${y}年${m}月${d}日`;
+        dateSourceDesc = `农历 ${ly}年${isLeap?'闰':''}${monthNameCN(lm)}月${ld}日 -> 公历 ${y}年${m}月${d}日`;
       }
 
       const yearP = yearPillar(y, m, d);
@@ -1665,7 +1665,7 @@
           </div>
         </div>`;
       });
-      html += `<div class="bazi-cell label" style="font-size:0.7rem;">—</div>`;
+      html += `<div class="bazi-cell label" style="font-size:0.7rem;">--</div>`;
 
       // 第六行：地支十神（本气）
       html += `<div class="bazi-cell label">支本气<br>十神</div>`;
@@ -1673,7 +1673,7 @@
         const tg = branchTenGod(dm, p.branch);
         html += `<div class="bazi-cell"><div class="hidden" style="color:var(--gold);font-size:0.85rem;">${tg}</div></div>`;
       });
-      html += `<div class="bazi-cell label" style="font-size:0.7rem;">—</div>`;
+      html += `<div class="bazi-cell label" style="font-size:0.7rem;">--</div>`;
 
       document.getElementById("baziGrid").innerHTML = html;
     }
@@ -1784,7 +1784,7 @@
       // 月支: 子(0)丑(1)寅(2)卯(3)辰(4)巳(5)午(6)未(7)申(8)酉(9)戌(10)亥(11)
 // 真正的冬(寒): 亥(11)子(0) -- 月主气为水, 寒冷
 // 真正的夏(热): 午(6) -- 月主气为火, 炎热
-// 丑月主气土, 月干丁火 — 不算寒月
+// 丑月主气土, 月干丁火 -- 不算寒月
       const monthMainEl = STEM_ELEMENT[STEMS.indexOf(BRANCH_HIDDEN[chart.month.branch][0])];
       const monthStemEl = STEM_ELEMENT[chart.month.stem];
       const isReallyCold = monthMainEl === "水" || (monthMainEl === "土" && [1,4,10].includes(chart.month.branch) === false && monthStemEl !== "火" && monthStemEl !== "土");
@@ -1810,7 +1810,7 @@
         favorSet.add("火");
       }
 
-      // 3) 身弱: 忌官杀, 食伤, 财星; 比劫若同类太多(≥5)才忌
+      // 3) 身弱: 忌官杀, 食伤, 财星; 比劫若同类太多(>=5)才忌
       //    身强: 忌印星, 比劫
       if (isWeak) {
         avoidSet.add(guanSha);   // 官杀 (克我) - 身弱忌
